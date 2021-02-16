@@ -1,3 +1,9 @@
+# [1.2.1] 
+
+## Added
+
+- Added `Reddit` container.
+
 # [1.2.0] 
 
 ## Added
