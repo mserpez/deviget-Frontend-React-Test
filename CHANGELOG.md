@@ -1,3 +1,12 @@
+# [1.2.0] 
+
+## Added
+
+- Added `react-redux` types.
+- Added `createStore` of redux.
+- Added root reducer.
+- Added redux dev tools configuration.
+
 # [1.1.3] 16/2/2021 18:32:07 
 
 ## Added
