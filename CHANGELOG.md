@@ -1,3 +1,11 @@
+# [1.1.1] 16/2/2021 18:21:55 
+
+## Added
+
+- Installed prettier and eslint to project with `airbnb` configuration.
+- Created `eslintrc.js`.
+- Added `scripts` to `package.json`, to run lint and prettier.
+
 # [1.0.1] 16/2/2021 18:16:01 
 
 ## Fixed
