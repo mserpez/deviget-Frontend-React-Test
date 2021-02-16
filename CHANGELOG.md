@@ -1,3 +1,12 @@
+# [1.1.3] 16/2/2021 18:32:07 
+
+## Added
+
+- Added `redux` dependencies.
+ - redux: 4.0.5.
+ - react-redux: 7.2.2.
+ - redux-devtools: 3.7.0.
+
 # [1.1.2] 16/2/2021 18:28:08 
 
 ## Docs
