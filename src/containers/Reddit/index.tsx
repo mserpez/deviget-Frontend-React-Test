@@ -1,3 +1,7 @@
+import { Title } from "../../components";
+
 export function Reddit() {
-    return null
+    return (
+        <Title label="Hello World" />
+    )
 }

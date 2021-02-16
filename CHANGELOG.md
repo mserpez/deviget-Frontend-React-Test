@@ -1,10 +1,18 @@
-# [1.2.1] 
+# [1.2.2] 16/2/2021 18:57:26 
+
+## Added, Fix
+
+- Added components folder.
+- Added `Title` component.
+- Fix changelog version dates.
+
+# [1.2.1] 16/2/2021 18:48:54
 
 ## Added
 
 - Added `Reddit` container.
 
-# [1.2.0] 
+# [1.2.0] 16/2/2021 18:33:38
 
 ## Added
 
