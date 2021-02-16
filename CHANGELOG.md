@@ -1,3 +1,9 @@
+# [1.3.1] 16/2/2021 20:01:26 
+
+## Removed
+
+- Removed default react test suite.
+
 # [1.3.0] 16/2/2021 19:25:35 
 
 ## Added
