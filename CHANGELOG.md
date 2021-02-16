@@ -1,3 +1,13 @@
+# [1.4.0] 
+
+## Added, Docs
+
+- Added testing suite with Jest and Enzyme.
+- Added in README.md, Test and Getting Started section.
+- Added test file for Title Component.
+- Added in `package.json`, jest configuration and test `scripts`.
+- Added setup testing file.
+
 # [1.3.1] 16/2/2021 20:01:26 
 
 ## Removed
