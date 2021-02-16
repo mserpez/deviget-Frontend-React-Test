@@ -1,3 +1,9 @@
+# [1.1.2] 16/2/2021 18:28:08 
+
+## Docs
+
+- Added introduction to `README.md`.
+
 # [1.1.1] 16/2/2021 18:21:55 
 
 ## Added
