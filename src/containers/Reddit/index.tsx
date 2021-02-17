@@ -1,7 +1,3 @@
-import { Title } from "../../components";
-
-export function Reddit() {
-    return (
-        <Title label="Hello World" />
-    )
-}
+export * from "./Container";
+export * from "./reducer";
+export * from "./constants";

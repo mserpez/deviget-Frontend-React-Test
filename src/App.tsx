@@ -2,8 +2,8 @@
 import React from "react";
 
 // Redux
-import { Provider } from 'react-redux'
-import { store } from './providers/redux';
+import { Provider } from "react-redux";
+import { store } from "./providers/redux";
 
 // Containers
 import { Reddit } from "./containers/Reddit";
@@ -13,7 +13,7 @@ function App() {
     <Provider store={store}>
       <Reddit />
     </Provider>
-  )
+  );
 }
 
 export default App;

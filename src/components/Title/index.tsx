@@ -1,7 +1,7 @@
 export interface TitleProps {
-    label: string
+  label: string;
 }
 
 export function Title({ label }: TitleProps) {
-    return <h1>{label}</h1>
+  return <h1>{label}</h1>;
 }
