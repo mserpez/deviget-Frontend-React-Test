@@ -8,13 +8,13 @@ import { IRedditFetchActions } from './actions';
 
 export interface IRedditState {
     data: {
-        top50: IRedditTop50Root[]
+        top50: IRedditTop50Root | undefined
     }
 }
 
 const initialState: IRedditState = {
     data: {
-        top50: []
+        top50: undefined
     }
 };
 
@@ -22,7 +22,7 @@ export function reducer(state: IRedditState = initialState, action: IRedditFetch
     const { type, payload } = action;
 
     if (type === RedditActionTypes.FETCH_DATA) {
-        _set(state, 'data', payload);
+        state = _set(state, 'data.top50', payload);
     }
 
     return state;

@@ -1,1 +1,1 @@
-export const CONTAINER_NAME = 'REDDIR';
+export const CONTAINER_NAME = 'REDDIT';

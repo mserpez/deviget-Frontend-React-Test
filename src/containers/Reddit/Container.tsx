@@ -1,5 +1,20 @@
-import { Title } from "../../components";
+// Vendor
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+// Actions
+import { fetch } from "./actions";
+// Internal container components
+import Content from "./Content";
 
 export function Reddit() {
-  return <Title label="Hello World" />;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Bind dispatch to action
+    const fetchData = () => dispatch(fetch());
+    // Dispatch fetch action
+    fetchData();
+  }, [dispatch]);
+
+  return <Content />;
 }

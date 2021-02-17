@@ -1,3 +1,13 @@
+# [1.4.2] 16/2/2021 21:44:13 
+
+## Added, Fixed
+
+- Added fetch action call on Reddit container mount.
+- Fix typos.
+- Fix returning state error on Reddit reducer.
+- Removed Hello World in Reddit container.
+- Format and lint code.
+
 # [1.4.1] 16/2/2021 21:44:13 
 
 ## Added
