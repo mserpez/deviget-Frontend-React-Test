@@ -1,3 +1,10 @@
+# [1.5.0] 17/2/2021 15:49:47 
+
+## Fix
+
+- Changed testing suite, now using `@testing-library`.
+- Refactor components test.
+
 # [1.4.5] 17/2/2021 15:19:13 
 
 ## Added, Fix

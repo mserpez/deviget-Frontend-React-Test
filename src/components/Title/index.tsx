@@ -5,7 +5,7 @@ export interface TitleProps {
 }
 
 export function Title({ label }: TitleProps) {
-  return <StyledTitle data-elm-id="title">{label}</StyledTitle>;
+  return <StyledTitle data-testid="title">{label}</StyledTitle>;
 }
 
 const StyledTitle = styled.h1`

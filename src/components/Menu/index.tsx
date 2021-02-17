@@ -8,7 +8,7 @@ export interface MenuProps {
 
 export function Menu({ title, children }: MenuProps) {
   return (
-    <StyledMenu data-elm-id="menu">
+    <StyledMenu data-testid="menu-root">
       {title && <Title label={title} />}
       {children}
     </StyledMenu>

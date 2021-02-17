@@ -3,7 +3,7 @@ export interface MenuItemProps {
 
 export function MenuItem({ }: MenuItemProps) {
   return (
-    <div>
+    <div data-testid="menu-item">
       <p>Menu Item</p>
     </div>
   )
