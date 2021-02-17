@@ -9,7 +9,9 @@ export default {
   component: PostContentComponent,
 } as Meta;
 
-const Template: Story<PostContentProps> = (args) => <PostContentComponent {...args} />;
+const Template: Story<PostContentProps> = (args) => (
+  <PostContentComponent {...args} />
+);
 
 export const PostContent = Template.bind({});
 PostContent.args = {};

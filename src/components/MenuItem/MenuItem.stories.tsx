@@ -12,7 +12,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story<MenuItemProps> = (args) => <MenuItemComponent {...args} />;
+const Template: Story<MenuItemProps> = (args) => (
+  <MenuItemComponent {...args} />
+);
 
 export const MenuItem = Template.bind({});
 MenuItem.args = {};

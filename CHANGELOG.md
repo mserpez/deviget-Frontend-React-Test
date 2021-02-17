@@ -1,3 +1,13 @@
+# [1.5.1] 17/2/2021 16:39:11 
+
+## Added
+
+- Added `Button` component.
+- Added styles to `Menu` component.
+- Added styles to `Title` component.
+- Implement `Menu` with own props on `Reddit Container`.
+- Format code.
+
 # [1.5.0] 17/2/2021 15:49:47 
 
 ## Fix

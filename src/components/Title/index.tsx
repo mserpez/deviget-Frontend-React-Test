@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 export interface TitleProps {
   label: string;
@@ -11,6 +11,6 @@ export function Title({ label }: TitleProps) {
 const StyledTitle = styled.h1`
   font-family: Helvetica;
   color: white;
-  padding: 16px;
+  padding: 5px;
   text-align: center;
-`
+`;

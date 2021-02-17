@@ -10,10 +10,10 @@ export default {
 } as Meta;
 
 const Template: Story<TitleProps> = (args) => (
-  <div style={{ backgroundColor: '#333333' }}>
+  <div style={{ backgroundColor: "#333333" }}>
     <TitleComponent {...args} />
   </div>
-)
+);
 
 export const Title = Template.bind({});
 Title.args = {
