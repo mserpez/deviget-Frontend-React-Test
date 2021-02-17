@@ -1,3 +1,13 @@
+# [1.4.5] 17/2/2021 15:19:13 
+
+## Added, Fix
+
+- Added `PostContent` component.
+- Fix `index.ts` on components root, to export all components.
+- Added styles dependencies using @emotion.
+    - @emotion/react: 11.1.5.
+    - @emotion/styled: 11.1.5.
+
 # [1.4.4] 16/2/2021 22:45:29 
 
 ## Added
@@ -36,7 +46,7 @@
 - Refactor application constants.
 - Format and lint code.
 
-# [1.4.0] 
+# [1.4.0] 16/2/2021 20:33:03
 
 ## Added, Docs
 

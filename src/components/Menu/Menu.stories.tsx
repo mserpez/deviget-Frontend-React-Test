@@ -7,12 +7,11 @@ import { Menu as MenuComponent, MenuProps } from ".";
 export default {
   title: "Components/Menu",
   component: MenuComponent,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
 } as Meta;
 
 const Template: Story<MenuProps> = (args) => <MenuComponent {...args} />;
 
 export const Menu = Template.bind({});
-Menu.args = {};
+Menu.args = {
+  title: "Test"
+};

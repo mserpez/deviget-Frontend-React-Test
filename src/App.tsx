@@ -1,6 +1,3 @@
-// Vendor
-import React from "react";
-
 // Redux
 import { Provider } from "react-redux";
 import { store } from "./providers/redux";

@@ -1,4 +1,6 @@
 // Types
+import styled from "@emotion/styled";
+import { Menu, MenuItem, PostContent } from "../../../components";
 import { IRedditTop50DataItem } from "../../../constants/services/reddit/types";
 
 export interface ContentProps {
@@ -11,5 +13,17 @@ export default function Content(props: ContentProps) {
 
     console.log(">>>>>data", data);
 
-    return null;
+    return (
+        <StyledContent>
+            <Menu title="Reddit Posts">
+                <MenuItem />
+            </Menu>
+            <PostContent />
+        </StyledContent>
+    )
 }
+
+const StyledContent = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
