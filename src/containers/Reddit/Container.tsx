@@ -5,9 +5,12 @@ import { useDispatch } from "react-redux";
 import { fetch } from "./actions";
 // Internal container components
 import Content from "./Content";
+// Types
+import { usePostList } from "./selectors";
 
 export function Reddit() {
   const dispatch = useDispatch();
+  const data = usePostList();
 
   useEffect(() => {
     // Bind dispatch to action
@@ -16,5 +19,5 @@ export function Reddit() {
     fetchData();
   }, [dispatch]);
 
-  return <Content />;
+  return <Content data={data} />;
 }

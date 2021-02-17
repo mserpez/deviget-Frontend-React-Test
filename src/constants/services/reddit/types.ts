@@ -104,14 +104,14 @@ interface Data2 {
     distinguished?: any;
 }
 
-interface Child {
+export interface IRedditTop50DataItem {
     kind: string;
     data: Data2;
 }
 
 interface IRedditTop50Data {
     modhash: string;
-    children: Child[];
+    children: IRedditTop50DataItem[];
     after: string;
     before?: any;
 }

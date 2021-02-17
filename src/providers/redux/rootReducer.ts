@@ -7,3 +7,5 @@ import { CONTAINER_NAME as REDDIT_CONTAINER_NAME, reducer as redditReducer } fro
 export const rootReducer = combineReducers({
     [REDDIT_CONTAINER_NAME]: redditReducer,
 })
+
+export type RootState = ReturnType<typeof rootReducer>

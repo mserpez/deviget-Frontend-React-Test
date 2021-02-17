@@ -1,3 +1,18 @@
+# [1.4.4] 16/2/2021 22:45:29 
+
+## Added
+
+- Added `Menu` and `Menu Item` components.
+
+# [1.4.3] 16/2/2021 21:44:36
+
+## Added, Fixed
+
+- Added selectors on Reddit container.
+- Modified Reddit reducer stored data.
+- Added `visitedList` to Reddit reducer.
+- Exported root reducer type.
+
 # [1.4.2] 16/2/2021 21:44:13 
 
 ## Added, Fixed
