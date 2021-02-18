@@ -1,3 +1,10 @@
+# [1.5.3] 17/2/2021 21:44:32 
+
+# Added
+
+- Added `husky` dependence, to run tests before commit.
+- Added `husky` configuration in `package.json`.
+
 # [1.5.2] 17/2/2021 21:43:09 
 
 # Fixed
