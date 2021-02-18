@@ -5,7 +5,7 @@ import { Story, Meta } from "@storybook/react/types-6-0";
 import { PostContent as PostContentComponent, PostContentProps } from ".";
 
 export default {
-  title: "Components/Menu/Menu Item",
+  title: "Components/Post/Content",
   component: PostContentComponent,
 } as Meta;
 

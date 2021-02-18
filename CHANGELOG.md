@@ -1,3 +1,19 @@
+# [1.5.2] 17/2/2021 21:43:09 
+
+# Fixed
+
+- Added `Chevron Right` image asset.
+- Added `Badge` component.
+- Added `Text` component with font size and color variations.
+- Added `PostImage` component.
+- Added `PostImageModal` component.
+- Fix `PostContent` storybook menu access.
+- Fix scrollbar styles.
+- Fix tests.
+- Renamed `MenuItem` to `PostItem`.
+- Style improvements.
+- Sorting of import/exports of `index.ts` on components.
+
 # [1.5.1] 17/2/2021 16:39:11 
 
 ## Added

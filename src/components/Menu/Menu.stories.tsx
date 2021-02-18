@@ -3,7 +3,6 @@ import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
 
 import { Menu as MenuComponent, MenuProps } from ".";
-import { MenuItem } from "../MenuItem";
 
 export default {
   title: "Components/Menu",
@@ -19,5 +18,5 @@ Menu.args = {
     label: "Dismiss All",
     onClick: alert,
   },
-  content: <MenuItem />,
+  content: <div />,
 };

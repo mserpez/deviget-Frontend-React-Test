@@ -9,7 +9,7 @@ export interface MenuProps {
 }
 
 const FOOTER_HEIGHT = 50;
-const HEADER_HEIGHT = 50;
+const HEADER_HEIGHT = 80;
 
 export function Menu({ title, button, content }: MenuProps) {
   return (
@@ -32,7 +32,7 @@ export function Menu({ title, button, content }: MenuProps) {
 // TODO: Create theme provider with breakpoints included.
 const StyledMenu = styled.div`
   background: #333333;
-  width: 20%;
+  width: 33%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -52,9 +52,12 @@ const StyledMenuHeader = styled.div`
 `;
 
 const StyledMenuContent = styled.div`
+  padding-left: 6px;
+  padding-right: 6px;
   display: flex;
   height: calc(100vh - ${FOOTER_HEIGHT + HEADER_HEIGHT}px);
-  overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const StyledMenuFooter = styled.div`

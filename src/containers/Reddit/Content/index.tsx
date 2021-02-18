@@ -1,7 +1,8 @@
 // Types
 import styled from "@emotion/styled";
-import { Menu, MenuItem, PostContent } from "../../../components";
+import { Menu, PostItem, PostContent } from "../../../components";
 import { IRedditTop50DataItem } from "../../../constants/services/reddit/types";
+import { PostList } from "./PostList";
 
 export interface ContentProps {
   data: IRedditTop50DataItem[];
@@ -9,8 +10,6 @@ export interface ContentProps {
 
 export default function Content(props: ContentProps) {
   const { data } = props;
-
-  console.log(">>>>>data", data);
 
   const onDismissAllHandler = () => {};
 
@@ -22,7 +21,7 @@ export default function Content(props: ContentProps) {
           label: "Dismiss All",
           onClick: onDismissAllHandler,
         }}
-        content={<MenuItem />}
+        content={<PostList data={data} />}
       />
       <PostContent />
     </StyledContent>

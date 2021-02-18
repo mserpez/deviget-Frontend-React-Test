@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { MenuItem } from ".";
+import { Badge } from ".";
 
 test("Renders the component correctly", () => {
   // Render component
-  render(<MenuItem />);
+  render(<Badge />);
 
   // Find the element
-  screen.getByTestId("menu-item");
+  screen.getByTestId("badge");
 });
