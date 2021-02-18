@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.1.5",
@@ -30,7 +30,8 @@
     "build-storybook": "build-storybook -s public",
     "test": "react-scripts test",
     "test:unit": "react-scripts test --watchAll=false",
-    "test:coverage": "react-scripts test --coverage --runInBand --watchAll=false"
+    "test:coverage": "react-scripts test --coverage --runInBand --watchAll=false",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": [

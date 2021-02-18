@@ -1,3 +1,9 @@
+# [1.5.4] 17/2/2021 21:55:09 
+
+# Added
+
+- Added postinstall script in `package.json`.
+
 # [1.5.3] 17/2/2021 21:44:32 
 
 # Added
