@@ -17,6 +17,7 @@ export enum TextFontSize {
 export enum TextFontColor {
   "grey" = "#777777",
   "lightGrey" = "#DADADA",
+  "darkGrey" = "#333333",
   "white" = "#FAFAFA",
   "orange" = "#F57C00",
 }

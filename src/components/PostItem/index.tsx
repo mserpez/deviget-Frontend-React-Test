@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Text, TextFontColor, TextFontSize, Badge, PostImage } from "../";
 import chevronRightImg from '../../assets/chevron-right.png';
+import { Button } from "../Button";
 
 export interface PostItemProps {
   author: string;
@@ -8,7 +9,11 @@ export interface PostItemProps {
   numComments: number;
   photoURL?: string;
   read?: boolean;
+  dismissed?: boolean;
   title: string;
+  readPostHandler: () => void;
+  dismissPostHandler: () => void;
+  id: string;
 }
 
 export function PostItem({
@@ -18,11 +23,15 @@ export function PostItem({
   photoURL,
   read = false,
   title,
+  // actions
+  readPostHandler,
+  dismissPostHandler,
+  id,
 }: PostItemProps) {
   return (
     <StyledContainer data-testid="post-item">
       <StyledRowHeader>
-        {read ? <Badge /> : null}
+        {read ? null : <Badge />}
         <Text
           label={author}
           fontSize={TextFontSize.xl}
@@ -34,7 +43,7 @@ export function PostItem({
           fontWeight={700}
         />
       </StyledRowHeader>
-      <StyledRowContent>
+      <StyledRowContent onClick={readPostHandler}>
         <PostImage
           url={photoURL}
           alt={title}
@@ -48,7 +57,7 @@ export function PostItem({
         <StyledArrowImg src={chevronRightImg} alt="right-arrow" />
       </StyledRowContent>
       <StyledRowFooter>
-        <p>Menu Item</p>
+        <Button onClick={dismissPostHandler} label="Dismiss" />
         <StyledComments>
           <Text
             label={`${numComments} comments`}
@@ -75,6 +84,7 @@ const StyledRow = styled.div`
 
 const StyledRowContent = styled(StyledRow)`
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 const StyledRowHeader = styled(StyledRow)`

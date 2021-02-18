@@ -2,22 +2,37 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 // Actions
-import { fetch } from "./actions";
+import { fetchPostsAction, readPostAction, dismissPostAction } from "./actions";
 // Internal container components
 import Content from "./Content";
 // Types
-import { usePostList } from "./selectors";
+import { useOpenedPost, usePostList } from "./selectors";
 
 export function Reddit() {
   const dispatch = useDispatch();
   const data = usePostList();
+  const openedPost = useOpenedPost();
 
+  // Is in charge to mark a post as read, to hide Badge.
+  const readPost = (id: string) => dispatch(readPostAction(id));
+
+  // Is in charge to set dismissed flag, to filter and not show it.
+  const dismissPost = (id: string) => dispatch(dismissPostAction(id));
+
+  // Component mount
   useEffect(() => {
     // Bind dispatch to action
-    const fetchData = () => dispatch(fetch());
+    const fetchData = () => dispatch(fetchPostsAction());
     // Dispatch fetch action
     fetchData();
   }, [dispatch]);
 
-  return <Content data={data} />;
+  return (
+    <Content
+      data={data}
+      openedPost={openedPost}
+      readPost={readPost}
+      dismissPost={dismissPost}
+    />
+  )
 }

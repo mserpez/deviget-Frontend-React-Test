@@ -1,17 +1,20 @@
 // Types
 import styled from "@emotion/styled";
-import { Menu, PostItem, PostContent } from "../../../components";
+import { Menu, PostContent } from "../../../components";
 import { IRedditTop50DataItem } from "../../../constants/services/reddit/types";
+import { RedditActions } from "../actions";
 import { PostList } from "./PostList";
 
 export interface ContentProps {
   data: IRedditTop50DataItem[];
+  openedPost?: IRedditTop50DataItem;
+  readPost: (id: string) => RedditActions
+  dismissPost: (id: string) => RedditActions
 }
 
-export default function Content(props: ContentProps) {
-  const { data } = props;
+export default function Content({ openedPost, ...props }: ContentProps) {
 
-  const onDismissAllHandler = () => {};
+  const onDismissAllHandler = () => { };
 
   return (
     <StyledContent>
@@ -21,9 +24,9 @@ export default function Content(props: ContentProps) {
           label: "Dismiss All",
           onClick: onDismissAllHandler,
         }}
-        content={<PostList data={data} />}
+        content={<PostList {...props} />}
       />
-      <PostContent />
+      {openedPost && <PostContent post={openedPost} />}
     </StyledContent>
   );
 }

@@ -10,7 +10,7 @@ export default {
 } as Meta;
 
 const Template: Story<TitleProps> = (args) => (
-  <div style={{ backgroundColor: "#333333" }}>
+  <div style={{ backgroundColor: "#DADADA" }}>
     <TitleComponent {...args} />
   </div>
 );
@@ -18,4 +18,5 @@ const Template: Story<TitleProps> = (args) => (
 export const Title = Template.bind({});
 Title.args = {
   label: "Title",
+  inverted: true
 };

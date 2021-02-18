@@ -1,28 +1,45 @@
-import { useState } from "react";
+import { ContentProps } from ".";
 import { PostItem } from "../../../components";
-import { IRedditTop50DataItem } from "../../../constants/services/reddit/types";
 
-export interface PostListProps {
-    data: IRedditTop50DataItem[];
-}
+export interface PostListProps extends ContentProps { }
 
-export function PostList({ data }: PostListProps) {
+export function PostList({ data, dismissPost, readPost }: PostListProps) {
 
     return (
         <div>
-            {data.map(
+            {data.filter(item => !item.data._isDismissed).map(
                 ({
-                    data: { id, author, created_utc, thumbnail, title, num_comments },
-                }) => (
-                    <PostItem
-                        author={author}
-                        createdDate={created_utc}
-                        key={`post-id-${id}`}
-                        numComments={num_comments}
-                        photoURL={thumbnail}
-                        title={title}
-                    />
-                )
+                    data: {
+                        _isRead,
+                        author,
+                        created_utc,
+                        id,
+                        num_comments,
+                        thumbnail,
+                        title
+                    },
+                }) => {
+                    const readPostHandler = () => {
+                        readPost(id)
+                    }
+                    const dismissPostHandler = () => {
+                        dismissPost(id)
+                    }
+                    return (
+                        <PostItem
+                            author={author}
+                            createdDate={created_utc}
+                            dismissPostHandler={dismissPostHandler}
+                            key={`post-id-${id}`}
+                            numComments={num_comments}
+                            photoURL={thumbnail}
+                            id={id}
+                            read={!!_isRead}
+                            readPostHandler={readPostHandler}
+                            title={title}
+                        />
+                    )
+                }
             )}
         </div>
     );

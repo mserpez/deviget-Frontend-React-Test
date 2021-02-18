@@ -22,7 +22,7 @@ export function Menu({ title, button, content }: MenuProps) {
       {content && <StyledMenuContent>{content}</StyledMenuContent>}
       {button && (
         <StyledMenuFooter>
-          <Button {...button} />
+          <Button block {...button} />
         </StyledMenuFooter>
       )}
     </StyledMenu>
@@ -32,7 +32,7 @@ export function Menu({ title, button, content }: MenuProps) {
 // TODO: Create theme provider with breakpoints included.
 const StyledMenu = styled.div`
   background: #333333;
-  width: 33%;
+  width: 33.33%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ const StyledMenu = styled.div`
   }
 
   @media (max-width: 776px) {
-    width: 75%;
+    width: 100%;
   }
 `;
 

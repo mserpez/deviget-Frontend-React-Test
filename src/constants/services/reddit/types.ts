@@ -58,7 +58,7 @@ interface IMedia {
     type: string;
 }
 
-interface Data2 {
+interface Data2 extends CustomItemData {
     domain: string;
     banned_by?: any;
     media_embed: IMediaEmbed | {};
@@ -114,6 +114,11 @@ interface IRedditTop50Data {
     children: IRedditTop50DataItem[];
     after: string;
     before?: any;
+}
+
+interface CustomItemData {
+    _isRead?: boolean
+    _isDismissed?: boolean
 }
 
 export interface IRedditTop50Root {

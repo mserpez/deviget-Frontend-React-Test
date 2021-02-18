@@ -1,3 +1,22 @@
+# [1.5.6] 18/2/2021 15:42:07 
+
+# Added, Fixed
+
+- Added `block` prop to `Button` component.
+- Added styles and behavior to `PostContent`.
+- Added to `PostImage` component, different sizes.
+- Fix general styles.
+
+# [1.5.5] 18/2/2021 12:42:01 
+
+# Added, Fixed
+
+- Added custom types to `IRedditTop50Item` to mark item as read or dismissed.
+- Added read and dismiss actions.
+- Changed title and description of project in `index.html`.
+- Fix Reddit container selector, to include read and dismiss attr.
+- Little refactor of reducer types.
+
 # [1.5.4] 17/2/2021 21:55:09 
 
 # Added
