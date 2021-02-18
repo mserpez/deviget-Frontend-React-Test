@@ -16,7 +16,8 @@ export function PostList({ data, dismissPost, readPost }: PostListProps) {
                         id,
                         num_comments,
                         thumbnail,
-                        title
+                        title,
+                        url
                     },
                 }) => {
                     const readPostHandler = () => {

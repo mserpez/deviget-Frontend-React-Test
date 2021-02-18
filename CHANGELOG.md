@@ -1,3 +1,12 @@
+# [1.5.7] 18/2/2021 16:50:28 
+
+# Added, Fixed
+
+- Fix general styles.
+- Added `loading` mode to `PostImage` component.
+- Added a few `TODOS` and comments.
+- Added function to get most relevant image to show on `PostContent`.
+
 # [1.5.6] 18/2/2021 15:42:07 
 
 # Added, Fixed
