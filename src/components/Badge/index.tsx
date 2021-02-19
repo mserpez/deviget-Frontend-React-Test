@@ -1,9 +1,7 @@
 import styled from "@emotion/styled";
 
-export interface BadgeProps { }
-
-export function Badge({ }: BadgeProps) {
-  return <StyledBadge data-testid="badge" />
+export function Badge() {
+  return <StyledBadge data-testid="badge" />;
 }
 
 const StyledBadge = styled.span`

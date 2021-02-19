@@ -18,5 +18,13 @@ const Template: Story<PostItemProps> = (args) => (
 
 export const PostItem = Template.bind({});
 PostItem.args = {
-  author: "Post Title",
+  post: {
+    id: "1",
+    title: "Post 1",
+    author: "mserpez",
+    createdAt: new Date().getTime(),
+    commentsQty: 1000000,
+    photoURL: "",
+    thumbnail: "",
+  },
 };

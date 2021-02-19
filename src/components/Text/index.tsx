@@ -63,5 +63,5 @@ const StyledText = styled.h1`
   font-size: ${({ fontSize }: TextBaseProps) => fontSize};
   color: ${({ fontColor }: TextBaseProps) => fontColor};
   font-weight: ${({ fontWeight }: TextBaseProps) => fontWeight};
-  width: ${({ block }: TextBaseProps) => block ? '100%' : 'inherit'};
+  width: ${({ block }: TextBaseProps) => (block ? "100%" : "inherit")};
 `;

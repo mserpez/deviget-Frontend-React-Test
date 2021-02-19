@@ -18,3 +18,14 @@ test("Renders the component correctly", async () => {
   await waitFor(() => fireEvent.click(btn));
   expect(val).toBe(2);
 });
+
+test("Renders the component with block prop", async () => {
+  const label = "Btn";
+  // Render component
+  render(<Button label={label} onClick={() => null} block />);
+
+  // Find the element
+  const btn = screen.getByTestId("button");
+  expect(btn).toHaveTextContent(label);
+  expect(btn).toHaveStyle("width: 100%");
+});

@@ -5,22 +5,22 @@ import { PostItem } from ".";
 import { DEFAULT_POST_URL } from "../PostImage";
 
 const postItemProps = {
-  id: "1",
-  title: "Post 1",
-  author: "mserpez",
-  createdDate: new Date().getTime(),
-  numComments: 1000000,
-  readPostHandler: () => { },
-  dismissPostHandler: () => { },
-}
+  post: {
+    id: "1",
+    title: "Post 1",
+    author: "mserpez",
+    createdAt: new Date().getTime(),
+    commentsQty: 1000000,
+    photoURL: "",
+    thumbnail: "",
+  },
+  readPostHandler: () => {},
+  dismissPostHandler: () => {},
+};
 
 test("Renders the component correctly", () => {
   // Render component
-  render(
-    <PostItem
-      {...postItemProps}
-    />
-  );
+  render(<PostItem {...postItemProps} />);
 
   // Find the element
   screen.getByTestId("post-item");
@@ -28,32 +28,20 @@ test("Renders the component correctly", () => {
 
 test("Renders the component correctly with default props", () => {
   // Render component
-  render(
-    <PostItem
-      {...postItemProps}
-    />
-  );
+  render(<PostItem {...postItemProps} />);
 
   // Check img default prop
   const elementImg = screen.getByTestId("post-image");
 
-  expect(elementImg).toHaveProperty("src", DEFAULT_POST_URL)
+  expect(elementImg).toHaveProperty("src", DEFAULT_POST_URL);
 });
 
 test("Renders badge when post is not read", () => {
   // Render component
-  render(
-    <PostItem
-      {...postItemProps}
-      read={true}
-    />
-  );
+  render(<PostItem {...postItemProps} />);
 
   // Check img default prop
   // TODO: Fix it.
   // const elementBadge = screen.getByTestId("badge");
   // expect(elementBadge).toBeInTheDocument()
 });
-
-
-

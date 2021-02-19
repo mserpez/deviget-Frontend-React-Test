@@ -1,50 +1,64 @@
+import { AnyAction, Dispatch } from 'redux';
 // Action types
-import { SERVICES } from '../../constants';
 import { RedditActionTypes } from './actionsTypes';
-
+// API fetch
+import { getPosts } from '../../dal';
 // API types
-import { IRedditTop50Root } from '../../constants/services/reddit/types';
+import { IPost } from '../../dal/types';
 
+// Action Definition
+export type IFetchPostsAction = (dispatch: Dispatch<AnyAction>) => Promise<void | {
+    type: RedditActionTypes.FETCH_DATA,
+    payload: IPost
+}>
 
-type ActionsPayload = {
-    [RedditActionTypes.FETCH_DATA]: IRedditTop50Root
-    [RedditActionTypes.DISMISS_POST]: string
-    [RedditActionTypes.READ_POST]: string
+export interface IDismissPostAction {
+    type: RedditActionTypes.DISMISS_POST,
+    payload: string
 }
 
-export function fetchPostsAction(): RedditActions {
-    return {
-        type: RedditActionTypes.FETCH_DATA,
-        payload: SERVICES.REDDIT_SERVICE.MOCK_DATA
-    }
+export interface IDismissAllPostsAction {
+    type: RedditActionTypes.DISMISS_ALL_POSTS,
 }
 
-export function dismissPostAction(id: string): RedditActions {
+export interface IReadPostAction {
+    type: RedditActionTypes.READ_POST,
+    payload: string
+}
+
+export function fetchPostsAction(): IFetchPostsAction {
+    return async (dispatch: Dispatch) => {
+        return getPosts().then(data => {
+            dispatch({
+                type: RedditActionTypes.FETCH_DATA,
+                payload: data,
+            })
+        }).catch(err => {
+            console.log(">>>>>", err);
+        });
+    };
+
+}
+
+export function dismissPostAction(id: string): IDismissPostAction {
     return {
         type: RedditActionTypes.DISMISS_POST,
         payload: id
     }
 }
 
-export function readPostAction(id: string): RedditActions {
+export function dismissAllPostsAction(): IDismissAllPostsAction {
+    return {
+        type: RedditActionTypes.DISMISS_ALL_POSTS,
+    }
+}
+
+export function readPostAction(id: string): IReadPostAction {
     return {
         type: RedditActionTypes.READ_POST,
         payload: id
     }
 }
 
-// It's in charge to map Action Type and Action Payload, based on Action type. 
-// It's to avoid crete a lot of action types.
-type ActionMap<ActionPayload extends { [index: string]: any }> = {
-    [Key in keyof ActionPayload]: ActionPayload[Key] extends undefined
-    ? {
-        type: Key;
-    }
-    : {
-        type: Key;
-        payload: ActionPayload[Key];
-    }
-};
-
 // Add here other types of actions.
-export type RedditActions = ActionMap<ActionsPayload>[keyof ActionMap<ActionsPayload>];
+export type RedditActions = IFetchPostsAction | IDismissPostAction | IReadPostAction | IDismissAllPostsAction

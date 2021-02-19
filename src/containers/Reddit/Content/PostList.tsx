@@ -1,47 +1,36 @@
-import { ContentProps } from ".";
 import { PostItem } from "../../../components";
+import { RedditActions } from "../actions";
 
-export interface PostListProps extends ContentProps { }
+import { IPost } from "../../../dal/types";
+
+export interface PostListProps {
+  data: IPost[];
+  openedPost?: IPost;
+  readPost: (id: string) => RedditActions;
+  dismissPost: (id: string) => RedditActions;
+}
 
 export function PostList({ data, dismissPost, readPost }: PostListProps) {
-
-    return (
-        <div>
-            {data.filter(item => !item.data._isDismissed).map(
-                ({
-                    data: {
-                        _isRead,
-                        author,
-                        created_utc,
-                        id,
-                        num_comments,
-                        thumbnail,
-                        title,
-                        url
-                    },
-                }) => {
-                    const readPostHandler = () => {
-                        readPost(id)
-                    }
-                    const dismissPostHandler = () => {
-                        dismissPost(id)
-                    }
-                    return (
-                        <PostItem
-                            author={author}
-                            createdDate={created_utc}
-                            dismissPostHandler={dismissPostHandler}
-                            key={`post-id-${id}`}
-                            numComments={num_comments}
-                            photoURL={thumbnail}
-                            id={id}
-                            read={!!_isRead}
-                            readPostHandler={readPostHandler}
-                            title={title}
-                        />
-                    )
-                }
-            )}
-        </div>
-    );
+  return (
+    <div>
+      {data
+        .filter((item) => !item._isDismissed)
+        .map((data) => {
+          const readPostHandler = () => {
+            readPost(data.id);
+          };
+          const dismissPostHandler = () => {
+            dismissPost(data.id);
+          };
+          return (
+            <PostItem
+              dismissPostHandler={dismissPostHandler}
+              key={`post-id-${data.id}`}
+              readPostHandler={readPostHandler}
+              post={data}
+            />
+          );
+        })}
+    </div>
+  );
 }

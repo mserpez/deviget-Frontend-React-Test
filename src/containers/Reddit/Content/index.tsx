@@ -1,28 +1,35 @@
 // Types
 import styled from "@emotion/styled";
 import { Menu, PostContent } from "../../../components";
-import { IRedditTop50DataItem } from "../../../constants/services/reddit/types";
-import { RedditActions } from "../actions";
+import {
+  IDismissAllPostsAction,
+  IDismissPostAction,
+  IReadPostAction,
+} from "../actions";
 import { PostList } from "./PostList";
 
+import { IPost } from "../../../dal/types";
+
 export interface ContentProps {
-  data: IRedditTop50DataItem[];
-  openedPost?: IRedditTop50DataItem;
-  readPost: (id: string) => RedditActions
-  dismissPost: (id: string) => RedditActions
+  data: IPost[];
+  openedPost?: IPost;
+  readPost: (id: string) => IReadPostAction;
+  dismissPost: (id: string) => IDismissPostAction;
+  dismissAllPosts: () => IDismissAllPostsAction;
 }
 
-export default function Content({ openedPost, ...props }: ContentProps) {
-
-  const onDismissAllHandler = () => { };
-
+export default function Content({
+  openedPost,
+  dismissAllPosts,
+  ...props
+}: ContentProps) {
   return (
     <StyledContent>
       <Menu
         title="Reddit Posts"
         button={{
           label: "Dismiss All",
-          onClick: onDismissAllHandler,
+          onClick: dismissAllPosts,
         }}
         content={<PostList {...props} />}
       />

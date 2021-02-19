@@ -1,55 +1,37 @@
 import styled from "@emotion/styled";
 import { Text, TextFontColor, TextFontSize, Badge, PostImage } from "../";
-import chevronRightImg from '../../assets/chevron-right.png';
+import chevronRightImg from "../../assets/chevron-right.png";
+import { IPost } from "../../dal/types";
 import { Button } from "../Button";
 
 export interface PostItemProps {
-  author: string;
-  createdDate: number;
-  numComments: number;
-  photoURL?: string;
-  read?: boolean;
-  dismissed?: boolean;
-  title: string;
+  post: IPost;
   readPostHandler: () => void;
   dismissPostHandler: () => void;
-  id: string;
 }
 
 export function PostItem({
-  author,
-  createdDate,
-  numComments,
-  photoURL,
-  read = false,
-  title,
+  // data
+  post,
   // actions
   readPostHandler,
   dismissPostHandler,
-  id,
 }: PostItemProps) {
   return (
     <StyledContainer data-testid="post-item">
       <StyledRowHeader>
-        {read ? null : <Badge />}
+        {post._isRead ? null : <Badge />}
+        <Text label={post.author} fontSize={TextFontSize.xl} fontWeight={700} />
         <Text
-          label={author}
-          fontSize={TextFontSize.xl}
-          fontWeight={700}
-        />
-        <Text
-          label={createdDate.toString()}
+          label={post.createdAt.toString()}
           fontSize={TextFontSize.md}
           fontWeight={700}
         />
       </StyledRowHeader>
       <StyledRowContent onClick={readPostHandler}>
-        <PostImage
-          url={photoURL}
-          alt={title}
-        />
+        <PostImage url={post.photoURL} alt={post.title} />
         <Text
-          label={title}
+          label={post.title}
           fontSize={TextFontSize.md}
           fontColor={TextFontColor.lightGrey}
           block
@@ -60,7 +42,7 @@ export function PostItem({
         <Button onClick={dismissPostHandler} label="Dismiss" />
         <StyledComments>
           <Text
-            label={`${numComments} comments`}
+            label={`${post.commentsQty} comments`}
             fontSize={TextFontSize.sm}
             fontColor={TextFontColor.orange}
           />

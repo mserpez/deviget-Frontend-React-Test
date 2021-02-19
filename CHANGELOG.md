@@ -1,3 +1,22 @@
+# [1.6.0] 
+
+# Added
+
+- Husky refactor.
+- Added `redux-thunk` library to allow promises on reducer.
+- Added `redux-thunk` configuration on `redux` store.
+- Refactor of constants folder.
+- Added `dal` folder (Data access layer).
+- Refactor Types, now its consuming an internal BFF (Backend for frontend), with formated data.
+
+# [1.5.8] 19/2/2021 11:54:22 
+
+# Added
+
+- Dismiss all action.
+- Added unit test to test block prop of `Button` component.
+- Added style to `Button` component to remove default outlined.
+
 # [1.5.7] 18/2/2021 16:50:28 
 
 # Added, Fixed

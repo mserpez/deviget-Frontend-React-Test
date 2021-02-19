@@ -18,5 +18,5 @@ const Template: Story<TitleProps> = (args) => (
 export const Title = Template.bind({});
 Title.args = {
   label: "Title",
-  inverted: true
+  inverted: true,
 };

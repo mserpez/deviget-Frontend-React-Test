@@ -2,7 +2,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 // Actions
-import { fetchPostsAction, readPostAction, dismissPostAction } from "./actions";
+import {
+  fetchPostsAction,
+  readPostAction,
+  dismissPostAction,
+  dismissAllPostsAction,
+} from "./actions";
 // Internal container components
 import Content from "./Content";
 // Types
@@ -19,6 +24,9 @@ export function Reddit() {
   // Is in charge to set dismissed flag, to filter and not show it.
   const dismissPost = (id: string) => dispatch(dismissPostAction(id));
 
+  // Dismiss all posts.
+  const dismissAllPosts = () => dispatch(dismissAllPostsAction());
+
   // Component mount
   useEffect(() => {
     // Bind dispatch to action
@@ -33,6 +41,7 @@ export function Reddit() {
       openedPost={openedPost}
       readPost={readPost}
       dismissPost={dismissPost}
+      dismissAllPosts={dismissAllPosts}
     />
-  )
+  );
 }

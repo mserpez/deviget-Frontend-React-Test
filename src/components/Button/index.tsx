@@ -19,11 +19,12 @@ export function Button({ onClick, label, block = false }: ButtonProps) {
 
 const StyledButton = styled.button`
   font-family: Helvetica;
-  width: ${({ block }: ButtonBaseProps) => block ? '100%' : 'auto'};
+  width: ${({ block }: ButtonBaseProps) => (block ? "100%" : "auto")};
   border: none;
   text-shadow: none;
   background: transparent;
   color: orange;
   font-size: 18px;
   cursor: pointer;
+  outline: none;
 `;
