@@ -15,3 +15,7 @@ The goal is create a simple Reddit client that shows the top 50 entries from Red
 - Run `yarn test` or `npm run test` if you need test watching.
 - Run `yarn test:coverage` or `npm run test:coverage` to run tests and get a coverage report.
 - To see coverage report you can open with your browser the file `/coverage/lcov-report/index.html` after running previous command.
+
+## Storybook
+
+- Run `yarn storybook` or `npm run storybook`.

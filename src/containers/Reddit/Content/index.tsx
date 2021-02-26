@@ -9,9 +9,11 @@ import {
   IDismissAllPostsAction,
   IDismissPostAction,
   IReadPostAction,
+  IToggleMenuAction,
 } from "../actions";
 
 import { IPost } from "../../../dal/types";
+import { useWindowSize } from "../../../utils/hooks";
 
 export interface ContentProps {
   data: IPost[];
@@ -19,6 +21,8 @@ export interface ContentProps {
   readPost: (id: string) => IReadPostAction;
   dismissPost: (id: string) => IDismissPostAction;
   dismissAllPosts: () => IDismissAllPostsAction;
+  toggleMenu: (isOpen: boolean) => IToggleMenuAction;
+  isMenuOpen: boolean;
   isServiceLoading: boolean;
   serviceError: string | null;
 }
@@ -28,11 +32,26 @@ export default function Content({
   dismissAllPosts,
   serviceError,
   isServiceLoading,
+  isMenuOpen,
+  toggleMenu,
+  readPost,
   ...props
 }: ContentProps) {
+  const { isMobile } = useWindowSize();
 
-  if (serviceError) return <div>{serviceError}</div>
-  if (isServiceLoading) return <LoadingSkeleton />
+  if (serviceError) return <div>{serviceError}</div>;
+  if (isServiceLoading) return <LoadingSkeleton />;
+
+  function openMenuHandler() {
+    return toggleMenu(true);
+  }
+
+  const readPostHandler = (id: string) => () => {
+    readPost(id);
+    toggleMenu(false);
+  };
+
+  const showCloseMenuButton = !isMenuOpen && isMobile;
 
   return (
     <StyledContent>
@@ -42,9 +61,16 @@ export default function Content({
           label: "Dismiss All",
           onClick: dismissAllPosts,
         }}
-        content={<PostList {...props} />}
+        content={<PostList {...props} readPostHandler={readPostHandler} />}
+        isOpen={isMenuOpen}
       />
-      {openedPost && <PostContent post={openedPost} />}
+      {openedPost && (
+        <PostContent
+          post={openedPost}
+          onMenuClose={openMenuHandler}
+          showClose={showCloseMenuButton}
+        />
+      )}
     </StyledContent>
   );
 }

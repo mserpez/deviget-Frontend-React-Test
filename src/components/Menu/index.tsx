@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 import { Button, ButtonProps } from "../Button";
 import { Title } from "../Title";
 
@@ -6,14 +7,15 @@ export interface MenuProps {
   title?: string;
   content?: React.ReactElement;
   button?: ButtonProps;
+  isOpen?: boolean;
 }
 
 const FOOTER_HEIGHT = 50;
 const HEADER_HEIGHT = 80;
 
-export function Menu({ title, button, content }: MenuProps) {
+export function Menu({ title, button, content, isOpen = true }: MenuProps) {
   return (
-    <StyledMenu data-testid="menu-root">
+    <StyledMenu data-testid="menu-root" isOpen={isOpen}>
       {title && (
         <StyledMenuHeader>
           <Title label={title} />
@@ -29,8 +31,14 @@ export function Menu({ title, button, content }: MenuProps) {
   );
 }
 
+interface IStyledMenu {
+  isOpen: boolean;
+}
+
 // TODO: Create theme provider with breakpoints included.
-const StyledMenu = styled.div`
+// TODO: Check this any. I set this any type to send prop
+// to div element and receive on emotion styled component.
+const StyledMenu: any = styled.div`
   background: #333333;
   width: 33.33%;
   height: 100vh;
@@ -44,6 +52,9 @@ const StyledMenu = styled.div`
 
   @media (max-width: 776px) {
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: ${({ isOpen }: IStyledMenu) => (isOpen ? "0" : "-100%")};
   }
 `;
 

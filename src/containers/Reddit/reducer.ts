@@ -14,10 +14,11 @@ export interface IRedditState {
         dismissedList: string[]
     },
     openedId: string | null
+    openedMenu: boolean
     service: {
         loading: boolean
         error: string | null
-    }
+    },
 }
 
 const initialState: IRedditState = {
@@ -27,6 +28,7 @@ const initialState: IRedditState = {
         dismissedList: [],
     },
     openedId: null,
+    openedMenu: true,
     service: {
         error: null,
         loading: false
@@ -74,6 +76,10 @@ export function reducer(state: IRedditState = initialState, action: RedditAction
 
     if (type === RedditActionTypes.SERVICE_ERROR) {
         state = _set(state, 'service.error', payload);
+    }
+
+    if (type === RedditActionTypes.TOGGLE_MENU) {
+        state = _set(state, 'openedMenu', payload);
     }
 
     return state;

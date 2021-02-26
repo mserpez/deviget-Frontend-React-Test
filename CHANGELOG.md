@@ -1,4 +1,23 @@
-# [1.6.2] 
+# [1.6.4] 26/2/2021 21:38:10 
+
+# Added, Fix
+
+- Added toggle menu action.
+- Responsive design.
+- Fix some tests.
+- Rename some interfaces with `I` prefix.
+- Code lint and format.
+- Added utils folder with `useWindowSize` hook.
+- Added time utils, to calculate elapsed time to show humanly.
+
+# [1.6.3] 26/2/2021 16:52:59
+
+# Added
+
+- Added zoom to post content image.
+- Format code.
+
+# [1.6.2] 26/2/2021 13:02:31
 
 # Added, Fix
 
@@ -15,7 +34,7 @@
 - Fix reducer issue to prevent handle bad data from bff.
 - Format code.
 
-# [1.6.0] 
+# [1.6.0] 19/2/2021 15:15:59
 
 # Added
 

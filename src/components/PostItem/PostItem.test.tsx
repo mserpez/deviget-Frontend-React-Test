@@ -1,10 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { PostItem } from ".";
-import { DEFAULT_POST_URL } from "../PostImage";
+import { PostItem, IPostItemProps } from ".";
 
-const postItemProps = {
+const postItemProps: IPostItemProps = {
   post: {
     id: "1",
     title: "Post 1",
@@ -12,6 +11,7 @@ const postItemProps = {
     createdAt: new Date().getTime(),
     commentsQty: 1000000,
     photoURL: "",
+    photoURLBig: "",
     thumbnail: "",
   },
   readPostHandler: () => {},
@@ -24,16 +24,6 @@ test("Renders the component correctly", () => {
 
   // Find the element
   screen.getByTestId("post-item");
-});
-
-test("Renders the component correctly with default props", () => {
-  // Render component
-  render(<PostItem {...postItemProps} />);
-
-  // Check img default prop
-  const elementImg = screen.getByTestId("post-image");
-
-  expect(elementImg).toHaveProperty("src", DEFAULT_POST_URL);
 });
 
 test("Renders badge when post is not read", () => {

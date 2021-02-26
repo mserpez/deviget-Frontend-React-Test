@@ -1,10 +1,15 @@
 import styled from "@emotion/styled";
+
 import { Text, TextFontColor, TextFontSize, Badge, PostImage } from "../";
-import chevronRightImg from "../../assets/chevron-right.png";
-import { IPost } from "../../dal/types";
 import { Button } from "../Button";
 
-export interface PostItemProps {
+import chevronRightImg from "../../assets/chevron-right.png";
+
+import { IPost } from "../../dal/types";
+import { useEffect } from "react";
+import { getElapsedTimeHumanly } from "../../utils/helpers/time";
+
+export interface IPostItemProps {
   post: IPost;
   readPostHandler: () => void;
   dismissPostHandler: () => void;
@@ -16,17 +21,15 @@ export function PostItem({
   // actions
   readPostHandler,
   dismissPostHandler,
-}: PostItemProps) {
+}: IPostItemProps) {
+  const timeElapsed = getElapsedTimeHumanly(post.createdAt);
+
   return (
     <StyledContainer data-testid="post-item">
       <StyledRowHeader>
         {post._isRead ? null : <Badge />}
         <Text label={post.author} fontSize={TextFontSize.xl} fontWeight={700} />
-        <Text
-          label={post.createdAt.toString()}
-          fontSize={TextFontSize.md}
-          fontWeight={700}
-        />
+        <Text label={timeElapsed} fontSize={TextFontSize.md} fontWeight={700} />
       </StyledRowHeader>
       <StyledRowContent onClick={readPostHandler}>
         <PostImage url={post.photoURL} alt={post.title} />

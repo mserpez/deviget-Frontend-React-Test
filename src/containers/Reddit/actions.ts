@@ -38,6 +38,11 @@ export interface IFetchErrorAction {
     payload: string
 }
 
+export interface IToggleMenuAction {
+    type: RedditActionTypes.TOGGLE_MENU,
+    payload: boolean
+}
+
 export function fetchPostsAction(): IFetchPostsAction {
     return async (dispatch: Dispatch) => {
         dispatch({
@@ -90,5 +95,12 @@ export function readPostAction(id: string): IReadPostAction {
     }
 }
 
+export function toggleMenuAction(isOpen: boolean): IToggleMenuAction {
+    return {
+        type: RedditActionTypes.TOGGLE_MENU,
+        payload: isOpen
+    }
+}
+
 // Add here other types of actions.
-export type RedditActions = IFetchPostsAction | IDismissPostAction | IReadPostAction | IDismissAllPostsAction
+export type RedditActions = IFetchPostsAction | IDismissPostAction | IReadPostAction | IDismissAllPostsAction | IFetchErrorAction | IFetchingAction | IToggleMenuAction

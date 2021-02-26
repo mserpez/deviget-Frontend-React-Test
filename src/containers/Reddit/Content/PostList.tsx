@@ -6,19 +6,20 @@ import { IPost } from "../../../dal/types";
 export interface PostListProps {
   data: IPost[];
   openedPost?: IPost;
-  readPost: (id: string) => RedditActions;
+  readPostHandler: (id: string) => () => void;
   dismissPost: (id: string) => RedditActions;
 }
 
-export function PostList({ data, dismissPost, readPost }: PostListProps) {
+export function PostList({
+  data,
+  dismissPost,
+  readPostHandler,
+}: PostListProps) {
   return (
     <div>
       {data
         .filter((item) => !item._isDismissed)
         .map((data) => {
-          const readPostHandler = () => {
-            readPost(data.id);
-          };
           const dismissPostHandler = () => {
             dismissPost(data.id);
           };
@@ -26,7 +27,7 @@ export function PostList({ data, dismissPost, readPost }: PostListProps) {
             <PostItem
               dismissPostHandler={dismissPostHandler}
               key={`post-id-${data.id}`}
-              readPostHandler={readPostHandler}
+              readPostHandler={readPostHandler(data.id)}
               post={data}
             />
           );

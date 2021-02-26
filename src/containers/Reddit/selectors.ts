@@ -31,3 +31,9 @@ export function useServiceError() {
 
     return error;
 }
+
+export function useIsOpenMenu() {
+    const { openedMenu } = useSelector((store: RootState) => store.REDDIT);
+
+    return openedMenu;
+}
