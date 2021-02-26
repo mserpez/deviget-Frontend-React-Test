@@ -11,8 +11,6 @@ export interface PostContentProps {
 }
 
 export function PostContent({ post }: PostContentProps) {
-  console.log(">>>>>post", post);
-
   // TODO: Ability to difference between img
   // and video post, to show the correct one.
   return (

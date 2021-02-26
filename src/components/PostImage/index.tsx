@@ -1,15 +1,12 @@
+import Image from "react-graceful-image";
 import styled from "@emotion/styled";
 
 import loadingImg from "../../assets/loading.gif";
 
-export const DEFAULT_POST_URL = "https://via.placeholder.com/115x110";
-export const DEFAULT_POST_URL_MD = "https://via.placeholder.com/400x400";
-export const DEFAULT_POST_ALT = "Image placeholder";
-
 export enum PostImageSize {
-  "sm" = "110px",
-  "md" = "400px",
-  "xl" = "700px",
+  "sm" = "110",
+  "md" = "400",
+  "xl" = "700",
 }
 
 export interface PostImageProps extends PostImageBaseProps {
@@ -30,25 +27,16 @@ export function PostImage({
   size = PostImageSize.sm,
   loading = false,
 }: PostImageProps) {
-  const finalUrl =
-    url || (size === PostImageSize.sm ? DEFAULT_POST_URL : DEFAULT_POST_URL_MD);
-
   if (loading) return <StyledLoadingImage alt="Loading..." src={loadingImg} />;
 
   return (
     <div data-testid="post-image-root" onClick={onImageClick}>
-      <StyledImage
-        data-testid="post-image"
-        src={finalUrl}
-        alt={alt}
-        size={size}
-      />
+      <StyledImage src={url} width={size} alt={alt} />
     </div>
   );
 }
 
-const StyledImage = styled.img`
-  width: ${({ size }: PostImageBaseProps) => size};
+const StyledImage = styled(Image)`
   max-height: 100%;
   margin-right: 12px;
   margin-top: 12px;

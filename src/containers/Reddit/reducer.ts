@@ -30,7 +30,9 @@ export function reducer(state: IRedditState = initialState, action: RedditAction
     const payload = _get(action, 'payload');
 
     if (type === RedditActionTypes.FETCH_DATA) {
-        // Asing to 
+        // Check if payload is an array
+        if (!Array.isArray(payload)) return state
+        // Asing to state.
         state = _set(state, 'data.top50', payload);
     }
 

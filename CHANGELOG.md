@@ -1,3 +1,12 @@
+# [1.6.1] 
+
+# Added, Fix
+
+- Added `react-graceful-image` library to process image placeholders.
+- Added implementation of `Image` component from `react-graceful-image`.
+- Fix reducer issue to prevent handle bad data from bff.
+- Format code.
+
 # [1.6.0] 
 
 # Added
