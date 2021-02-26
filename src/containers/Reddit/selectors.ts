@@ -15,8 +15,19 @@ export function usePostList() {
 export function useOpenedPost() {
     const { data: { top50 }, openedId } = useSelector((store: RootState) => store.REDDIT);
 
-    // Add _isDismissed, and _isRead props to list item.
     const openedPost = top50.find((item) => item.id === openedId);
 
     return openedPost || undefined;
+}
+
+export function useIsServiceLoading() {
+    const { service: { loading } } = useSelector((store: RootState) => store.REDDIT);
+
+    return loading;
+}
+
+export function useServiceError() {
+    const { service: { error } } = useSelector((store: RootState) => store.REDDIT);
+
+    return error;
 }

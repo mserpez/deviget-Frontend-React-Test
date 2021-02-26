@@ -1,3 +1,11 @@
+# [1.6.2] 
+
+# Added, Fix
+
+- Added `redux-persist` library to persist data in store.
+- Added `react-loading-skeleton` library to show loading indicators correctly to improve UX.
+- Added actions to indicate fetching and error status.
+
 # [1.6.1] 
 
 # Added, Fix

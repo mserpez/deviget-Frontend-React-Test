@@ -10,13 +10,15 @@ import {
 } from "./actions";
 // Internal container components
 import Content from "./Content";
-// Types
-import { useOpenedPost, usePostList } from "./selectors";
+// Reddit Selectors
+import { useOpenedPost, usePostList, useIsServiceLoading, useServiceError } from "./selectors";
 
 export function Reddit() {
   const dispatch = useDispatch();
   const data = usePostList();
   const openedPost = useOpenedPost();
+  const isServiceLoading = useIsServiceLoading();
+  const serviceError = useServiceError();
 
   // Is in charge to mark a post as read, to hide Badge.
   const readPost = (id: string) => dispatch(readPostAction(id));
@@ -42,6 +44,8 @@ export function Reddit() {
       readPost={readPost}
       dismissPost={dismissPost}
       dismissAllPosts={dismissAllPosts}
+      isServiceLoading={isServiceLoading}
+      serviceError={serviceError}
     />
   );
 }

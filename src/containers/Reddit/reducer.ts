@@ -13,7 +13,11 @@ export interface IRedditState {
         readList: string[]
         dismissedList: string[]
     },
-    openedId?: string
+    openedId: string | null
+    service: {
+        loading: boolean
+        error: string | null
+    }
 }
 
 const initialState: IRedditState = {
@@ -22,7 +26,11 @@ const initialState: IRedditState = {
         readList: [],
         dismissedList: [],
     },
-    openedId: undefined
+    openedId: null,
+    service: {
+        error: null,
+        loading: false
+    }
 };
 
 export function reducer(state: IRedditState = initialState, action: RedditActions) {
@@ -58,6 +66,14 @@ export function reducer(state: IRedditState = initialState, action: RedditAction
         if (!list.includes(payload)) list.push(payload);
         state = _set(state, 'data.readList', list);
         state = _set(state, 'openedId', payload);
+    }
+
+    if (type === RedditActionTypes.SERVICE_FETCHING) {
+        state = _set(state, 'service.loading', payload);
+    }
+
+    if (type === RedditActionTypes.SERVICE_ERROR) {
+        state = _set(state, 'service.error', payload);
     }
 
     return state;
