@@ -35,7 +35,9 @@
     "build-storybook": "build-storybook -s public",
     "test": "react-scripts test",
     "test:unit": "react-scripts test --watchAll=false",
-    "test:coverage": "react-scripts test --coverage --runInBand --watchAll=false"
+    "test:coverage": "react-scripts test --coverage --runInBand --watchAll=false",
+    "docker:build": "docker build -t registry.gitlab.com/matias.serpez/deviget-react-challenge-devops/fe .",
+    "docker:push": "docker push registry.gitlab.com/matias.serpez/deviget-react-challenge-devops/fe"
   },
   "eslintConfig": {
     "extends": [

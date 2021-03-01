@@ -1,3 +1,10 @@
+# [1.7.0] 3/1/2021, 1:10:21 AM 
+
+# Added
+
+- Added Dockerfile.
+- Added dockerignore.
+
 # [1.6.4] 26/2/2021 21:38:10 
 
 # Added, Fix
