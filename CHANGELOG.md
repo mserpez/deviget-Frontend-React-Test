@@ -1,3 +1,9 @@
+# [1.7.1] 2/3/2021 14:45:21 
+
+# Added
+
+- Fix BFF service constants.
+
 # [1.7.0] 3/1/2021, 1:10:21 AM 
 
 # Added
